@@ -1,62 +1,58 @@
-#Image Management
-# List images
+# IMAGE MANAGEMENT
 
-docker images                        
- # List all images
+# List all images
+docker images
 
-docker images -a                     
- # List all images (including intermediate)
+# List all images (including intermediate)
+docker images -a
 
-docker images -q                      
 # List only image IDs
-***********************************
-# Pull/Push images
+docker images -q
 
-docker pull <image>                   
 # Download image from registry
+docker pull <image>
 
-docker push <image>                   
 # Upload image to registry
+docker push <image>
 
-docker search <term>                  
 # Search Docker Hub
-********************************
-# Build images
+docker search <term>
 
-docker build -t <name> .              
 # Build image from Dockerfile
+docker build -t <name> .
 
-docker build -t <name> -f <file> .    
 # Build with specific Dockerfile
+docker build -t <name> -f <file> .
 
-docker commit <container> <image>    
- # Create image from container
-**************************************
-# Remove images
+# Create image from container
+docker commit <container> <image>
 
-docker rmi <image>                   
- # Remove an image
+# Remove an image
+docker rmi <image>
 
-docker rmi -f <image>                
- # Force remove image
+# Force remove image
+docker rmi -f <image>
 
-docker image prune                  
-  # Remove unused images
+# Remove unused images
+docker image prune
 
-docker image prune -a                
- # Remove all unused images
+# Remove all unused images
+docker image prune -a
 
-docker rmi $(docker images -q)       
- # Remove all images
-****************************************
-# Image info
+# Remove all images
+docker rmi $(docker images -q)
 
-docker history <image>            
 # Show image history/layers
+docker history <image>
 
-docker inspect <image>               
- # Detailed image info
+# Detailed image info
+docker inspect <image>
 
-docker tag <source> <target>       
-   # Tag an image
+# Tag an image
+docker tag <source> <target>
 
+# Save image to tar file
+docker save <image> > image.tar
+
+# Load image from tar file
+docker load < image.tar
