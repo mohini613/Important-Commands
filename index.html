@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mohini Gaikwad | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #7190d8, #020617);
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(58, 52, 59, 0.848);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      top: var(--y, 50%);
+      left: var(--x, 50%);
+      transform: translate(-50%, -50%);
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(
+        circle,
+        rgba(234, 232, 235, 0.836),
+        transparent 50%
+      );
+      pointer-events: none;
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+
+<body class="text-slate-100 font-sans">
+
+  <div class="min-h-screen flex items-center justify-center px-6">
+
+    <div id="card" class="glass float max-w-3xl w-full rounded-3xl p-10">
+
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold tracking-tight text-indigo-400">
+          Mohini Gaikwad
+        </h1>
+        <p class="mt-2 text-slate-300">
+          Backend Developer • Java • Hibernate • Spring Boot • Cloud Enthusiast
+        </p>
+      </div>
+
+      <!-- About -->
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold text-indigo-300 mb-2">About</h2>
+        <p class="text-slate-300 leading-relaxed">
+          I build clean, scalable backend systems using Java and Spring Boot.
+          I enjoy solving real-world problems, designing APIs, and learning
+          cloud-native architectures with a strong focus on simplicity
+          and reliability.
+        </p>
+      </div>
+
+      <!-- Skills -->
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold text-indigo-300 mb-3">Skills</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">Java</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">Spring Boot</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">Hibernate</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">REST APIs</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">Docker</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">PostgreSQL</span>
+          <span class="px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300">Cloud Basics</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between mt-10">
+        <p class="text-sm text-slate-400">
+          © 2025 Mohini Gaikwad
+        </p>
+
+        <div class="flex gap-4">
+          <a href="https://www.linkedin.com/in/mohini-gaikwad777" target="_blank"
+             class="text-slate-300 hover:text-indigo-400 transition">LinkedIn</a>
+
+          <a href="https://github.com/mohini613" target="_blank"
+             class="text-slate-300 hover:text-indigo-400 transition">GitHub</a>
+
+          <a href="mailto:gaikwadmohini777@gmail.com"
+             class="text-slate-300 hover:text-indigo-400 transition">Email</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty("--x", `${x}px`);
+      card.style.setProperty("--y", `${y}px`);
+    });
+  </script>
+
+</body>
+</html>
