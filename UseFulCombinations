@@ -1,0 +1,29 @@
+# Stop all running containers
+docker stop $(docker ps -q)
+
+# Remove all stopped containers
+docker rm $(docker ps -aq)
+
+# Remove all images
+docker rmi $(docker images -q)
+
+# Complete cleanup (containers, images, volumes, networks)
+docker system prune -a --volumes
+
+# View real-time logs with last 100 lines
+docker logs -f --tail 100 <container>
+
+# Remove all containers and images
+docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)
+
+# List container sizes
+docker ps -s
+
+# Remove dangling images
+docker rmi $(docker images -f "dangling=true" -q)
+
+# Stop and remove specific container
+docker stop <container> && docker rm <container>
+
+# Build and run in one command
+docker build -t <name> . && docker run <name>

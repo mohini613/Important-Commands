@@ -1,0 +1,26 @@
+# View container logs with timestamps
+docker logs -t <container>
+
+# View last N lines of logs
+docker logs --tail 100 <container>
+
+# View logs since specific time
+docker logs --since 2024-01-01 <container>
+
+# Inspect container processes
+docker top <container>
+
+# Show container resource usage
+docker stats <container>
+
+# Show changes to container filesystem
+docker diff <container>
+
+# Show port mappings
+docker port <container>
+
+# View container events
+docker events --filter container=<container>
+
+# Run command and remove container after exit
+docker run --rm <image> <command>
