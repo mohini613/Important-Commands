@@ -1,0 +1,11 @@
+# Step 1: Remove all stopped containers
+docker container prune -f
+
+# Step 2: Verify they're gone
+docker ps -a
+
+# Step 3: Clean up unused images too (optional)
+docker image prune -a
+
+# Step 4: See your disk space recovered
+docker system df
